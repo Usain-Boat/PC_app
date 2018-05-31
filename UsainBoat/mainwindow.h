@@ -15,8 +15,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void serialReceived();
+
 private:
     Ui::MainWindow *ui;
+    QByteArray buffer;
 };
 
 #endif // MAINWINDOW_H
