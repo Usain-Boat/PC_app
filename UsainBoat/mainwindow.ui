@@ -26,68 +26,9 @@
     <property name="currentIndex">
      <number>1</number>
     </property>
-    <widget class="QWidget" name="ModeTab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="QWidget" name="verticalLayoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>171</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Modes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QRadioButton" name="radioButton_2">
-           <property name="text">
-            <string>Boat 1 Leads</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton">
-           <property name="text">
-            <string>Boat 2 Leads</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_3">
-           <property name="text">
-            <string>Relay</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_4">
-           <property name="text">
-            <string>Sprint</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </widget>
     <widget class="QWidget" name="LogTab">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Logdata</string>
      </attribute>
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
@@ -117,19 +58,29 @@
         <x>10</x>
         <y>10</y>
         <width>310</width>
-        <height>51</height>
+        <height>61</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="1">
+        <widget class="QLCDNumber" name="lcd_speed1"/>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Speed</string>
+          <string>Speed Boat 1</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLCDNumber" name="lcdNumber"/>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Speed Boat 2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLCDNumber" name="lcd_speed2"/>
        </item>
       </layout>
      </widget>
@@ -144,7 +95,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="2" column="1">
-        <widget class="QLCDNumber" name="lcdNumber_2"/>
+        <widget class="QLCDNumber" name="lcd_b1l"/>
        </item>
        <item row="1" column="2">
         <widget class="QLabel" name="label_8">
@@ -161,7 +112,7 @@
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QLCDNumber" name="lcdNumber_3"/>
+        <widget class="QLCDNumber" name="lcd_b1r"/>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_4">
@@ -171,10 +122,10 @@
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QLCDNumber" name="lcdNumber_5"/>
+        <widget class="QLCDNumber" name="lcd_b2r"/>
        </item>
        <item row="3" column="1">
-        <widget class="QLCDNumber" name="lcdNumber_4"/>
+        <widget class="QLCDNumber" name="lcd_b2l"/>
        </item>
        <item row="1" column="1">
         <widget class="QLabel" name="label_7">
@@ -189,6 +140,82 @@
           <string>Motor current</string>
          </property>
         </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ModeTab">
+     <attribute name="title">
+      <string>Modes</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>171</width>
+        <height>155</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Modes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QRadioButton" name="radioButton_Idle">
+           <property name="text">
+            <string>Idle</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_ManualB1">
+           <property name="text">
+            <string>Manual Boat 1</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_ManualB2">
+           <property name="text">
+            <string>Manual Boat 2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_Follow">
+           <property name="text">
+            <string>Follow</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_Relay">
+           <property name="text">
+            <string>Relay</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_Auto">
+           <property name="text">
+            <string>Auto Pilot</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
